@@ -25,13 +25,12 @@ color_func () {
 #Collected parameters
 Temperature_wd=$(sensors | awk '/Core/ { temp += $3; cont++ } END { print temp / cont }' | tr -d '+ºC')
 Temperature=${Temperature_wd%[.,]*}
-#Hay que cambiar esto porque no en todos los sitemas sensors se comporta de la misma manera, y si llega a detectar que no hay cores habrá una división por 0 y todo será un desastre.
 
 RAM=$(free -m | grep "Mem:" | awk '{ print $3 }') #RAM usage is collected only in MB
 
 CPU=$(top -b -n1 | grep "Cpu(s)" | awk -F ',' '{ print $1+$3 }')
 	
-CPU_whd=${CPU%.*} #Variable of CPU without decimals
+CPU_whd=${CPU%.*} #Variable of CPU without decimalss
 
 Disk=$(df -h --output=target,pcent /home | awk '/home/ { gsub("%", ""); print $2 }')
 

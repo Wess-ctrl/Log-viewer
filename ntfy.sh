@@ -29,7 +29,6 @@ while true; do
 
 	Temperature_wd=$(sensors | awk '/Core/ { temp += $3; cont++ } END { print temp / cont }' | tr -d '+ºC')
 	Temperature=${Temperature_wd%[.,]*}
-	#Hay que cambiar esto porque no en todos los sitemas sensors se comporta de la misma manera, y si llega a detectar que no hay cores habrá una división por 0 y todo será un desastre.
 
 	RAM=$(free -m | awk '/Mem:/ { print $3 }') # Se obtiene solo el uso de memoria RAM en Mb.
 
