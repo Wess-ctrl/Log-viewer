@@ -20,7 +20,6 @@ ntfy_func () {
 		fi
 	elif [[ -v alerted["$key"] ]]; then #Si existe la variable "key" dentro del array "alerted" entonces se elimina la key del array.
 			unset alerted["$key"] #"unset" sirve para eliminar keys dentro de arrays asociativos
-		fi
 	fi
 }
 
