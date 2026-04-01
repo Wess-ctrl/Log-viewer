@@ -23,7 +23,7 @@ ntfy_func () {
 	fi
 }
 
-#Aquí se recogen las variables de la temperatura del procesador, el uso de memoria RAM, el % de almacenamiento en el disco, los inicios de sesión fallidos al entrar por ssh y el % de uso del procesador.
+#Aqui se recogen las variables de la temperatura del procesador, el uso de memoria RAM, el % de almacenamiento en el disco, los inicios de sesión fallidos al entrar por ssh y el % de uso del procesador.
 while true; do
 
 	Temperature_wd=$(sensors | awk '/Core/ { temp += $3; cont++ } END { print temp / cont }' | tr -d '+ºC')
